@@ -1,0 +1,2 @@
+## GLFW binding for duktape
+
