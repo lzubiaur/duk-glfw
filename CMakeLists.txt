@@ -39,3 +39,6 @@ add_executable(tests
 # http://duktape.org/guide.html#compiling
 target_compile_options(tests PRIVATE -std=c99 -Os -fomit-frame-pointer -fstrict-aliasing)
 target_link_libraries(tests glfw ${GLFW_LIBRARIES})
+
+# Copy the Javascript file to the build tree
+file(COPY tests/glfw.js DESTINATION ${CMAKE_BINARY_DIR})
