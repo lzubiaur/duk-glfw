@@ -55,11 +55,11 @@ try {
   /// Window handling
   // glfw.windowHint(glfw.RESIZABLE, 0);
   // glfwCreateWindow
-  var window = glfw.createWindow(480, 320, 'my(window');
+  var window = glfw.createWindow(480, 320, 'my window');
   // Full screen
   //(window = glfw.createWindow(640, 480, 'my(window', glfw.getPrimaryMonitor());
   if (window == null) {
-    throw new Error('FATAL: Failed to create(window');
+    throw new Error('FATAL: Failed to create window');
   }
   glfw.setWindowTitle(window, 'another title');
   glfw.setWindowSize(window, 640, 480);
