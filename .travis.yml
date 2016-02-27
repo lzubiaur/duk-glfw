@@ -1,0 +1,17 @@
+# Run on the container-based new infrastructure
+sudo: false
+
+language: c
+
+addons:
+  apt:
+    packages:
+
+before_install:
+
+script:
+  - mkdir build && cd build
+  - cmake .. && make
+
+notifications:
+  email: false
