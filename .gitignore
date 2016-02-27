@@ -1,0 +1,31 @@
+# Lines that start with '#' are comments.
+# For a complete gitignore templates please check out https://github.com/github/gitignore
+
+.DS_Store
+*.bak
+
+# Vim
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
+
+#
+build/
+products/
+tmp/
+obj/
+
+# XCode
+xcuserdata/
+DerivedData/
+
+# CMake
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+cmake_install.cmake
+install_manifest.txt
+flascc/build
