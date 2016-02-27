@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project(duk_glfw_tests)
 
-# Download GLFW
+# Download and unpack GLFW
 set(GLFW_DIST "glfw-3.1.2")
 set(GLFW_URL https://github.com/glfw/glfw/releases/download/3.1.2/glfw-3.1.2.zip)
 message(STATUS "Downloading ${GLFW_DIST}...")
@@ -11,9 +11,17 @@ file(DOWNLOAD ${GLFW_URL} ${CMAKE_BINARY_DIR}/${GLFW_DIST}.zip)
 message(STATUS "Unpacking ${GLFW_DIST}...")
 execute_process(COMMAND ${CMAKE_COMMAND} -E tar xfz ${GLFW_DIST}.zip
   WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+
+# Disable unused GLFW features to speed up the build
+option(GLFW_BUILD_EXAMPLES "Build the GLFW example programs" OFF)
+option(GLFW_BUILD_TESTS "Build the GLFW test programs" OFF)
+option(GLFW_BUILD_DOCS "Build the GLFW documentation" OFF)
+option(GLFW_INSTALL "Generate installation target" OFF)
+
+# Can now include the GLFW cmake script
 add_subdirectory(${CMAKE_BINARY_DIR}/${GLFW_DIST})
 
-# Download Duktape
+# Download and unpack Duktape
 set(DUKTAPE_DIST "duktape-1.4.0")
 set(DUKTAPE_URL http://duktape.org/${DUKTAPE_DIST}.tar.xz)
 message(STATUS "Downloading ${DUKTAPE_DIST}...")
