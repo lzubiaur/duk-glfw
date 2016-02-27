@@ -32,13 +32,13 @@ include_directories(
   ${CMAKE_BINARY_DIR}/${DUKTAPE_DIST}/src
   ${CMAKE_BINARY_DIR}/${GLFW_DIST}/include)
 
-add_executable(tests
+add_executable(duk_glfw
   duk_glfw.c
   tests/test.c
   ${DUKTAPE_DIST}/src/duktape.c)
 # http://duktape.org/guide.html#compiling
-target_compile_options(tests PRIVATE -std=c99 -Os -fomit-frame-pointer -fstrict-aliasing)
-target_link_libraries(tests glfw ${GLFW_LIBRARIES})
+target_compile_options(duk_glfw PRIVATE -std=c99 -Os -fomit-frame-pointer -fstrict-aliasing)
+target_link_libraries(duk_glfw glfw ${GLFW_LIBRARIES})
 
 # Copy the Javascript file to the build tree
 file(COPY tests/glfw.js DESTINATION ${CMAKE_BINARY_DIR})
