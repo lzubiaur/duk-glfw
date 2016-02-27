@@ -1,5 +1,7 @@
 ## GLFW binding for Duktape
 
+[![Build Status](https://travis-ci.org/lzubiaur/duk-glfw.svg?branch=master)](https://travis-ci.org/lzubiaur/duk-glfw)
+
 Binding of the OpenGL [GLFW](http://www.glfw.org/) API for the [Duktape](http://duktape.org/) Javascript engine.
 
 To use the binding just include `duk_glfw.c` and `duk_glfw.h` into your project and call `dukopen_glfw` to load the module.
