@@ -16,8 +16,6 @@
 
 #include <stdio.h>
 
-#define SCRIPT_FILENAME "glfw.js"
-
 DUK_LOCAL void fatal_handler(duk_context *ctx, duk_errcode_t code, const char *msg) {
   fprintf(stderr, "Fatal error: %s [code: %d]", msg, code);
   /* Fatal handler should not return. */
@@ -26,6 +24,11 @@ DUK_LOCAL void fatal_handler(duk_context *ctx, duk_errcode_t code, const char *m
 
 int start(int argc, char *argv[]) {
   duk_context *ctx = NULL;
+  char *script_filename = "glfw.js";
+
+  if (argc > 1) {
+    script_filename = argv[1];
+  }
 
   if ((ctx = duk_create_heap(NULL, NULL, NULL, NULL, fatal_handler)) == NULL) {
     fprintf(stderr, "FATAL: Failed to create the Duktape context.\n");
@@ -37,8 +40,8 @@ int start(int argc, char *argv[]) {
   duk_call(ctx, 0);
   duk_put_global_string(ctx, "glfw");
 
-  if (duk_peval_file(ctx, SCRIPT_FILENAME) != 0) {
-    fprintf(stderr, "Error loading file '%s' : %s\n", SCRIPT_FILENAME, duk_safe_to_string(ctx, -1));
+  if (duk_peval_file(ctx, script_filename) != 0) {
+    fprintf(stderr, "Error loading file '%s' : %s\n", script_filename, duk_safe_to_string(ctx, -1));
     goto finished;
   }
 
