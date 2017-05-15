@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/lzubiaur/duk-glfw.svg?branch=master)](https://travis-ci.org/lzubiaur/duk-glfw)
 
-Binding of the OpenGL [GLFW](http://www.glfw.org/) API for the [Duktape](http://duktape.org/) Javascript engine.
+Binding of the OpenGL [GLFW](http://www.glfw.org/) API for the [Duktape](http://duktape.org/) JavaScript engine.
 
 To use the binding just include `duk_glfw.c` and `duk_glfw.h` into your project and call `dukopen_glfw` to load the module.
 
@@ -21,7 +21,7 @@ int main() {
 }
 ```
 
-Now you can call GLFW functions from Javascript using the `glfw` global object.
+Now you can call GLFW functions from JavaScript using the `glfw` global object.
 
 ```Javascript
   glfw.setErrorCallBack(myErrorHandler);
