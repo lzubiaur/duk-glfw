@@ -31,7 +31,7 @@ Now you can call GLFW functions from JavaScript using the `glfw` global object.
 
 See `tests/glfw.js` for more examples.
 
-### Build the tests
+### Build the tests
 
 The CMake script will download both GLFW and Duktape before building the tests.
 
